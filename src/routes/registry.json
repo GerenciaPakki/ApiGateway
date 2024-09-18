@@ -1,0 +1,10 @@
+{
+    "services": {
+        "deprisa":{
+            "apiName": "cotizar",
+            "host": "https://g3rhkfyi2yhrrvzjcbftd2d2cy.apigateway.us-ashburn-1.oci.customer-oci.com/",
+            "port": "",
+            "url": "https://g3rhkfyi2yhrrvzjcbftd2d2cy.apigateway.us-ashburn-1.oci.customer-oci.com/conecta2/v2/admision_envios/"
+        }
+    }
+}
