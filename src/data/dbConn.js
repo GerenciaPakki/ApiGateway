@@ -46,7 +46,7 @@ const conn = async() => {
         // Agregar las opciones de autenticación con el usuario y contraseña
         const options = {
         auth: {
-            user: `${usr}`,
+            username: `${usr}`,
             password: `${pwd}`
         }
         };
