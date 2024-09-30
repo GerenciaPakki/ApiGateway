@@ -7,6 +7,7 @@ async function getApiData(proveedor, nombre, metodo) {
     try {
         db = await conn();
         const data = await ApiConfig.find({ proveedor: proveedor, nombre: nombre, metodo: metodo });
+        console.log(data);
         return data;
     } catch (error) {
         throw error;

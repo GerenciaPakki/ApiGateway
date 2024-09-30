@@ -53,7 +53,7 @@ const conn = async() => {
         console.log(uri);
         console.log(options);
 
-        await mongoose.connect(uri, options);
+        await mongoose.connect(uri);
         // console.log('Connection DB');
         
     } catch (error) {
