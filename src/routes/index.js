@@ -38,7 +38,7 @@ router.all('/:apiName/:path', async (req, res) => {
             
             const reqBody = mustache.render(requestTercero, req.body);
             
-            console.log(reqBody)
+            console.log('Body',reqBody)
 
             const headers = {};
             for (const [key, value] of Object.entries(dataRequest.header)) {
