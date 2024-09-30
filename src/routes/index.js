@@ -52,9 +52,11 @@ router.all('/:apiName/:path', async (req, res) => {
 
             try {
                 axios({method: req.method, url: url, headers: headers, auth: auth, data: reqBody})
-                    .then(async response => {                                                        
+                    .then(async response => {   
+                        console.log('response.data -> ', response.data)                                                     
                         const mensaje = UtilityJSON.getValueAtPath(response.data, response_path.split(','));
-                        const codigo = UtilityJSON.getValueAtPath(mensaje, response_code.split(','));                                                               
+                        const codigo = UtilityJSON.getValueAtPath(mensaje, response_code.split(','));      
+                        console.log('Resuesta: ', res);                                                         
                         respuesta.success(req, res, mensaje, 200, codigo)  
                 })
                 .catch(error => {
