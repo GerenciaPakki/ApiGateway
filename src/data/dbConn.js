@@ -21,13 +21,13 @@ async function conn() {
     try {
         const options = {
             auth: { username: usr, password: pwd },
-            authSource: 'admin', // Dependiendo de cómo esté configurada tu base de datos
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            // authSource: 'admin', // Dependiendo de cómo esté configurada tu base de datos
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true
         };
         
         // Si no hay usuario, no necesitas opciones de autenticación
-        await mongoose.connect(mongoURL, usr === '' ? undefined : options);
+        await mongoose.connect(mongoURL, options);
         return mongoose.connection;
     } catch (error) {
         console.error('Error en la función conn:', error);
