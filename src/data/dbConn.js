@@ -41,8 +41,7 @@ const conn = async() => {
         // const uri = "mongodb+srv://dev_pakki:T3cn0l0g14*@atlascluster.3v6nhtw.mongodb.net/devpakkiDB";
         const uri = `${mongoURL}`;
         // process.env.DB_CNN
-        mongoose.set("strictQuery", false);
-        console.log(usr, pwd);
+        mongoose.set("strictQuery", false);        
         // Agregar las opciones de autenticación con el usuario y contraseña
         const options = {
         auth: {
@@ -51,6 +50,9 @@ const conn = async() => {
         }
         };
     
+        console.log(uri);
+        console.log(options);
+
         await mongoose.connect(uri, options);
         // console.log('Connection DB');
         
