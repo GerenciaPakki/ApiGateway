@@ -43,17 +43,17 @@ const conn = async() => {
         // process.env.DB_CNN
         mongoose.set("strictQuery", false);        
         // Agregar las opciones de autenticación con el usuario y contraseña
-        // const options = {
-        // auth: {
-        //     username: `${usr}`,
-        //     password: `${pwd}`
-        // }
-        // };
+        const options = {
+        auth: {
+            username: `${usr}`,
+            password: `${pwd}`
+        }
+        };
     
-        // console.log(uri);
-        // console.log(options);
+        console.log(uri);
+        console.log(options);
 
-        await mongoose.connect(uri);
+        await mongoose.connect(uri, options);
         // console.log('Connection DB');
         
     } catch (error) {
