@@ -7,6 +7,7 @@ const pwd = config.apps[0].dev.MONGO_PWD
 
 async function conn() {
     try {        
+        console.log(usr,pwd);
         const options = {auth: {user: usr,password: pwd}};
         await mongoose.connect(mongoURL, usr === '' ? undefined : options);
         return mongoose.connection;
