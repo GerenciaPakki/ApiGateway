@@ -35,9 +35,11 @@ router.all('/:apiName/:path', async (req, res) => {
             const url = dataRequest.url;  
             const response_path = dataRequest.response_path;   
             const response_code = dataRequest.response_code;                          
-
+            
             const reqBody = mustache.render(requestTercero, req.body);
             
+            console.log(reqBody)
+
             const headers = {};
             for (const [key, value] of Object.entries(dataRequest.header)) {
                 headers[`${key}`] = `${value}`;                
@@ -56,17 +58,21 @@ router.all('/:apiName/:path', async (req, res) => {
                         respuesta.success(req, res, mensaje, 200, codigo)  
                 })
                 .catch(error => {
+                    console.log('Respueta de error del servicio', error);
+                    respuesta.error(error);
                     res.send(error)           
                 });
             } catch (error) {   
+                console.error('Error en la solicitud:', error);
                 respuesta.error(req, res, error.message, 500)    
                 // respuesta.error(req, res, error, error.response.status || 500)
             }
         }).catch((error) => {
+            console.error('Error en la obtencion de la data:', error);
             respuesta.error(req, res, error.message, 500)
         });        
     } catch (error) {
-        console.error('Error en la solicitud:', error);
+        console.error('Error en el llamado al servicio:', error);
         respuesta.error(req, res, error, error.response.status || 500);
     }
 });
