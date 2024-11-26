@@ -61,13 +61,14 @@ router.all('/:apiName/:path', async (req, res) => {
                 })
                 .catch(error => {
                     console.log('Respueta de error del servicio', error);
-                    respuesta.error(error);
-                    res.send(error)           
+                    respuesta.error(req, res, error, error.response.status || 500)
+                    // respuesta.error(error);
+                    // res.send(error)           
                 });
             } catch (error) {   
                 console.error('Error en la solicitud:', error);
-                respuesta.error(req, res, error.message, 500)    
-                // respuesta.error(req, res, error, error.response.status || 500)
+                // respuesta.error(req, res, error.message, 500)    
+                respuesta.error(req, res, error, error.response.status || 500)
             }
         }).catch((error) => {
             console.error('Error en la obtencion de la data:', error);
